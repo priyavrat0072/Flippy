@@ -9,11 +9,15 @@ import {
 import React, {useState} from 'react';
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
+import { useNavigation } from '@react-navigation/native';
+
 
 const SignUp = () => {
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigation = useNavigation()
 
   const reset = () => {
     setEmail('');
@@ -66,11 +70,15 @@ const SignUp = () => {
       />
 
       <TouchableOpacity onPress={() => signUpDetails()}>
-        <Text>Sign Up</Text>
+        <Text>Sign Up / Login</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => reset()}>
         <Text>Reset</Text>
+      </TouchableOpacity>
+        <Text>OR</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <Text>LOGIN PAGE</Text>
       </TouchableOpacity>
 
     </View>

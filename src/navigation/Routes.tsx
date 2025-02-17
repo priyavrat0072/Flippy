@@ -9,7 +9,7 @@ import SignUp from '../screen/SignUp';
 const Stack = createNativeStackNavigator();
 export const AuthRoutes = () => {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator>
       <Stack.Screen
         name="Login"
         component={Login}
@@ -24,13 +24,16 @@ export const AuthRoutes = () => {
   );
 };
 
-export const HomePage = () => {
-  <Stack.Navigator>
+
+export const HomeRoutes = () => {
+  // console.log('Home Routes Triggerd')
+  return(
+    <Stack.Navigator>
     <Stack.Screen 
       name="Home" 
       component={Home} 
       options={{headerShown: true}}/>
-  </Stack.Navigator>;
+  </Stack.Navigator>
+  )
 };
 
-const styles = StyleSheet.create({});

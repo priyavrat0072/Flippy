@@ -9,10 +9,13 @@ import {
 import React, {useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigation = useNavigation()
 
   const reset = () => {
     setEmail('');
@@ -25,7 +28,7 @@ const Login = () => {
     }
     try {
       const newReg = await auth().signInWithEmailAndPassword(email, password);
-      console.log('Sign in done');
+      navigation.navigate('Login')
       return newReg;
     } catch (error) {
       console.log('Email or Password incorrect');
@@ -54,6 +57,10 @@ const Login = () => {
 
       <TouchableOpacity onPress={() => reset()}>
         <Text>Reset</Text>
+      </TouchableOpacity>
+      <Text>OR</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('SignUp') }>
+        <Text>SIGNUP PAGE</Text>
       </TouchableOpacity>
     </View>
   );
