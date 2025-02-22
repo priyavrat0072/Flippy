@@ -1,12 +1,8 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useState} from 'react';
 import auth from '@react-native-firebase/auth';
-import {ActivityIndicator, View} from 'react-native';
 import {AuthRoutes, HomeRoutes} from './src/navigation/Routes';
-
-const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [user, setUser] = useState<any>('');

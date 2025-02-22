@@ -13,12 +13,12 @@ export const AuthRoutes = () => {
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="SignUp"
         component={SignUp}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
@@ -32,7 +32,7 @@ export const HomeRoutes = () => {
     <Stack.Screen 
       name="Home" 
       component={Home} 
-      options={{headerShown: true}}/>
+      options={{headerShown: false}}/>
   </Stack.Navigator>
   )
 };
