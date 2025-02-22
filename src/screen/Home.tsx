@@ -37,11 +37,11 @@ const Home = () => {
                 source={{uri: item.image}}
               />
               </View>
-              <View>
-                <Text numberOfLines={1}>{item.title}</Text>
-                <Text numberOfLines={2}>{item.description}</Text>
-                <Text>{item.category}</Text>
-                <Text>{item.price}</Text>
+              <View style={styles.details}>
+                <Text numberOfLines={1} style={styles.title}>{item.title}</Text>
+                <Text numberOfLines={2} style={styles.desc}>{item.description}</Text>
+                <Text style={styles.category}>{item.category}</Text>
+                <Text style={styles.price}>$ {item.price}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -80,5 +80,27 @@ const styles = StyleSheet.create({
   image:{
     height:100,
     width:100,
+  },
+  title:{
+    fontSize:16,
+    fontWeight:'600',
+    marginBottom:2,
+  },
+  desc:{
+    fontSize:12,
+    marginBottom:2,
+  },
+  details:{
+    marginLeft:5
+  },
+  category:{
+    fontSize:12,
+    fontWeight:'600',
+  },
+  price:{
+    fontWeight:'700'
   }
+  
+  
+
 });
