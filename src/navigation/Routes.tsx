@@ -26,7 +26,7 @@ export const AuthRoutes = () => {
 
 
 export const HomeRoutes = () => {
-  // console.log('Home Routes Triggerd')
+  
   return(
     <Stack.Navigator>
     <Stack.Screen 
