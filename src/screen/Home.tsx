@@ -10,9 +10,12 @@ import {
 import React, {useEffect, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import {theme} from '../theme/style';
+import { useNavigation } from '@react-navigation/native';
+import Header from '../constants/Header';
 
 const Home = () => {
   const [products, setProducts] = useState<any>([]);
+  const navigation = useNavigation()
 
   useEffect(() => {
     getProducts();
@@ -26,11 +29,12 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
+      <Header name={"welcome"}/>
       <FlatList
         data={products}
         renderItem={({item, index}) => {
           return (
-            <TouchableOpacity style={styles.main}>
+            <TouchableOpacity style={styles.main} onPress={()=>{navigation.navigate('ProductDetails',{prod:item})}}>
               <View style={styles.imagecontainer}>
               <Image
                 style={styles.image}
@@ -64,7 +68,7 @@ export default Home;
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    padding:5,
+    
     backgroundColor: '#f2f2f2',
   },
   main:{
@@ -89,6 +93,7 @@ const styles = StyleSheet.create({
   desc:{
     fontSize:12,
     marginBottom:2,
+    color:'#527a7a'
   },
   details:{
     marginLeft:5
@@ -98,7 +103,8 @@ const styles = StyleSheet.create({
     fontWeight:'600',
   },
   price:{
-    fontWeight:'700'
+    fontWeight:'700',
+    color:'#009933'
   }
   
   
