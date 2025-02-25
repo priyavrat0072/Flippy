@@ -11,7 +11,7 @@ import React, {useEffect, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import {theme} from '../theme/style';
 import { useNavigation } from '@react-navigation/native';
-import Header from '../constants/Header';
+import Header from '../components/Header';
 
 const Home = () => {
   const [products, setProducts] = useState<any>([]);
@@ -52,13 +52,13 @@ const Home = () => {
         }}
       />
 
-      <TouchableOpacity
+      {/* <TouchableOpacity
         
         onPress={() => {
           auth().signOut();
         }}>
         <Text style={{fontSize:24}}>Logout</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

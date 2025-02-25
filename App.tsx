@@ -2,7 +2,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {useState} from 'react';
 import auth from '@react-native-firebase/auth';
-import {AuthRoutes, HomeRoutes} from './src/navigation/Routes';
+import {AuthRoutes, DrawerRoutes, HomeRoutes} from './src/navigation/Routes';
 
 const App = () => {
   const [user, setUser] = useState<any>('');
@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      {user !== '' ? <HomeRoutes userData={user} /> : <AuthRoutes />}
+      {user !== '' ? <DrawerRoutes userData={user} /> : <AuthRoutes />}
     </NavigationContainer>
   );
 };
