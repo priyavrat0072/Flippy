@@ -12,10 +12,13 @@ import auth from '@react-native-firebase/auth';
 import {theme} from '../theme/style';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../components/Header';
+import { useDispatch } from 'react-redux';
+import { addProducts } from '../redux/slices/ProductSlice';
 
 const Home = () => {
   const [products, setProducts] = useState<any>([]);
   const navigation = useNavigation()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     getProducts();
@@ -24,7 +27,11 @@ const Home = () => {
   const getProducts = async () => {
     await fetch('https://fakestoreapi.com/products')
       .then(res => res.json())
-      .then(res => setProducts(res));
+      .then(res => {
+        setProducts(res)
+        dispatch(addProducts(res))
+      });
+
   };
 
   return (
