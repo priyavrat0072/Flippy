@@ -9,10 +9,53 @@ import ProductDetails from '../screen/ProductDetails';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerScreen from '../screen/DrawerScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import categories from '../screen/categories';
+import account from '../screen/account';
+import cart from '../screen/cart';
+import Fontisto from 'react-native-vector-icons/Fontisto'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
+
+export const DrawerRoutes = (props: any) => {
+  // console.log(props.userData._user.email)
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name={props.userData._user.email.toUpperCase()} component={MyTabs} />
+    </Drawer.Navigator>
+  );
+};
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="HomeRoutes" component={HomeRoutes} options={{
+        tabBarIcon:({color,size})=>(
+          <Fontisto name="home" size={size} color={color} />
+        )
+      }} />
+      <Tab.Screen name="categories" component={categories} options={{
+        tabBarIcon:({color,size})=>(
+          <MaterialIcons name="category" size={size} color={color} />
+        )
+      }} />
+      <Tab.Screen name="account" component={account} options={{
+        tabBarIcon:({color,size})=>(
+          <MaterialCommunityIcons name="account" size={size} color={color} />
+        )
+      }}/>
+      <Tab.Screen name="cart" component={cart} options={{
+        tabBarIcon:({color,size})=>(
+          <EvilIcons name="cart" size={size} color={color} />
+        )
+      }}/>
+    </Tab.Navigator>
+  );
+}
 
 export const AuthRoutes = () => {
   return (
@@ -45,29 +88,8 @@ export const HomeRoutes = (props: any) => {
   );
 };
 
-export const DrawerRoutes = (props: any) => {
-  return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="HEllo" component={MyTabs} />
-      <Drawer.Screen name="NotificationsScreen" component={NotificationsScreen} />
-    </Drawer.Navigator>
-  );
-};
 
-function MyTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="HomeRoutes" component={HomeRoutes} />
-      <Tab.Screen name="orders" component={HomeRoutes} />
-     
-    </Tab.Navigator>
-  );
-}
 
-function NotificationsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-     <Text>NOTIFICATION</Text>
-    </View>
-  );
-}
+
+
+

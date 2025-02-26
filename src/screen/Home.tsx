@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Header name={"welcome"}/>
+      {/* <Header name={"welcome"}/> */}
       <FlatList
         data={products}
         renderItem={({item, index}) => {
@@ -51,14 +51,6 @@ const Home = () => {
           );
         }}
       />
-
-      {/* <TouchableOpacity
-        
-        onPress={() => {
-          auth().signOut();
-        }}>
-        <Text style={{fontSize:24}}>Logout</Text>
-      </TouchableOpacity> */}
     </View>
   );
 };
