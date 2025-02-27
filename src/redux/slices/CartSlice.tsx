@@ -7,12 +7,18 @@ const CartSlice = createSlice({
   },
   reducers: {
     addtocart(state, action) {
-       
       let tempdata = state.data;
+      let isExists = false
+      tempdata.map((item)=>{
+        if(item.id == action.payload.id){
+          isExists = true
+        }
+      })
+      if(!isExists){
+        tempdata.push(action.payload)
+      }
       
-        tempdata.push(action.payload);
       state.data = tempdata;
-     
     },
   },
 });
