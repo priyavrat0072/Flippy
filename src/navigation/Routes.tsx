@@ -12,10 +12,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import categories from '../screen/categories';
 import account from '../screen/account';
 import cart from '../screen/cart';
-import Fontisto from 'react-native-vector-icons/Fontisto'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import EvilIcons from 'react-native-vector-icons/EvilIcons'
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -25,7 +25,10 @@ export const DrawerRoutes = (props: any) => {
   // console.log(props.userData._user.email)
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name={props.userData._user.email.toUpperCase()} component={MyTabs} />
+      <Drawer.Screen
+        name={props.userData._user.email.toUpperCase()}
+        component={MyTabs}
+      />
     </Drawer.Navigator>
   );
 };
@@ -33,26 +36,37 @@ export const DrawerRoutes = (props: any) => {
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="HomeRoutes" component={HomeRoutes} options={{
-        tabBarIcon:({color,size})=>(
-          <Fontisto name="home" size={size} color={color} />
-        )
-      }} />
-      <Tab.Screen name="categories" component={categories} options={{
-        tabBarIcon:({color,size})=>(
-          <MaterialIcons name="category" size={size} color={color} />
-        )
-      }} />
-      <Tab.Screen name="account" component={account} options={{
-        tabBarIcon:({color,size})=>(
-          <MaterialCommunityIcons name="account" size={size} color={color} />
-        )
-      }}/>
-      <Tab.Screen name="cart" component={cart} options={{
-        tabBarIcon:({color,size})=>(
-          <EvilIcons name="cart" size={size} color={color} />
-        )
-      }}/>
+      <Tab.Screen
+        name="HomeRoutes"
+        component={HomeRoutes}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => (
+            <Fontisto name="home" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="account"
+        component={account}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="account" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="cart"
+        component={cart}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => (
+            <EvilIcons name="cart" size={size} color={color} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -83,13 +97,8 @@ export const HomeRoutes = (props: any) => {
         options={{headerShown: false}}
       />
 
-      <Stack.Screen name="ProductDetails" component={ProductDetails} />
+      <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
+      <Stack.Screen name="categories" component={categories} options={{headerShown: false}}/>
     </Stack.Navigator>
   );
 };
-
-
-
-
-
-
