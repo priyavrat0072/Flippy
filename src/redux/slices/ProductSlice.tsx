@@ -7,13 +7,11 @@ const ProductsSlice = createSlice({
     },
     reducers:{
         addProducts(state,action){
-            // console.log('action.payload----------',action.payload)
             state.data = action.payload
         }
     }
     
 })
-
 export const {addProducts} = ProductsSlice.actions
 export default ProductsSlice.reducer
 

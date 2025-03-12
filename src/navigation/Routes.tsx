@@ -16,13 +16,15 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import Search from '../screen/Search';
+import Wishlist from '../screen/Wishlist';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
 export const DrawerRoutes = (props: any) => {
-  // console.log(props.userData._user.email)
+  
   return (
     <Drawer.Navigator>
       <Drawer.Screen
@@ -46,17 +48,18 @@ function MyTabs() {
           ),
         }}
       />
-
       <Tab.Screen
-        name="account"
-        component={account}
+        name="Search"
+        component={Search}
         options={{
           headerShown: false,
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="account" size={size} color={color} />
+            <Fontisto name="search" size={size} color={color} />
           ),
         }}
       />
+
+      
       <Tab.Screen
         name="cart"
         component={cart}
@@ -64,6 +67,26 @@ function MyTabs() {
           headerShown: false,
           tabBarIcon: ({color, size}) => (
             <EvilIcons name="cart" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Wishlist"
+        component={Wishlist}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => (
+            <EvilIcons name="heart" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="account"
+        component={account}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="account" size={size} color={color} />
           ),
         }}
       />

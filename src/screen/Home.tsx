@@ -29,11 +29,12 @@ const Home = () => {
     await fetch('https://fakestoreapi.in/api/products')
       .then(res => res.json())
       .then(res => {
-        setProducts(res.products);
         dispatch(addProducts(res));
+        setProducts(res.products);
+        
       });
   };
-  console.log('products--------', products);
+  // console.log('products--------', products);
   return (
     <View style={styles.container}>
       <View>

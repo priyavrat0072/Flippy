@@ -12,10 +12,10 @@ import {useNavigation} from '@react-navigation/native';
 
 const categories = props => {
   const navigation = useNavigation();
-  console.log(props.route.params.category);
+  // console.log(props.route.params.category);
   const [category, setCategory] = useState([]);
   let categoryType = props.route.params.category;
-  console.log('categoryType---------', categoryType);
+  // console.log('categoryType---------', categoryType);
 
   useEffect(() => {
     getCategory();
