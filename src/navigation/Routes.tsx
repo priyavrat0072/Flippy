@@ -50,7 +50,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Search"
-        component={Search}
+        component={SearchRoutes}
         options={{
           headerShown: false,
           tabBarIcon: ({color, size}) => (
@@ -71,8 +71,8 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Wishlist"
-        component={Wishlist}
+        name="WishListRoutes"
+        component={WishListRoutes}
         options={{
           headerShown: false,
           tabBarIcon: ({color, size}) => (
@@ -122,6 +122,32 @@ export const HomeRoutes = (props: any) => {
 
       <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
       <Stack.Screen name="categories" component={categories} options={{headerShown: false}}/>
+    </Stack.Navigator>
+  );
+};
+
+export const SearchRoutes = (props: any) => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
+    </Stack.Navigator>
+  );
+};
+
+export const WishListRoutes = (props: any) => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Wishlist"
+        component={Wishlist}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 };

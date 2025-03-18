@@ -2,6 +2,7 @@ import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'rea
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addtocart } from '../redux/slices/CartSlice'
+import { addtowishlist } from '../redux/slices/WishListSlice'
 
 
 const ProductDetails = (props:any) => {
@@ -20,9 +21,14 @@ const ProductDetails = (props:any) => {
       <Text style={styles.category}>{productDtl.category.toUpperCase()}</Text>
       <Text style={styles.price}>Price : ${productDtl.price}</Text>
       <View style={styles.btncontainer}>
+      <View style={styles.btns}>
       <TouchableOpacity onPress={()=>(dispatch(addtocart(productDtl)))} style={styles.btn}>
         <Text style={styles.btntxt}>Add to cart</Text>
       </TouchableOpacity >
+      <TouchableOpacity onPress={()=>(dispatch(addtowishlist(productDtl)))} style={[styles.btn,{backgroundColor:'#99ffcc'}]}>
+        <Text style={styles.btntxt}>Wishlist</Text>
+      </TouchableOpacity >
+      </View>
       </View>
     </ScrollView>
   )
@@ -63,10 +69,11 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   btn:{
+    margin:10,
     backgroundColor:'#ffa64d',
     padding:10,
     height:50,
-    width:200,
+    width:180,
     alignItems:'center',
     borderRadius: 20,
     shadowColor: '#000',
@@ -82,6 +89,9 @@ const styles = StyleSheet.create({
   },
   btntxt:{
     fontSize:20
+  },
+  btns:{
+    flexDirection:'row'
   }
 
 })
